@@ -7,6 +7,7 @@ import numpy as np
 import myClass 
 import json
 import math
+import os
 import tensorflow as tf
 
 from matplotlib import pyplot as plt
@@ -48,7 +49,7 @@ drawing_spec_leftEye = mp_drawing.DrawingSpec(color=ml.RED_COLOR, thickness=1, c
 
 #CARICO IL MODELLO PRIMA DEL VIDEO (PARTE RETE NEURALE)
 #model = keras.models.load_model('MODIFICATO/my_eye_model')
-
+model = keras.models.load_model(r'C:\Users\lucry\Desktop\TIROCINIO_DRIVERS\MODIFICATO\my_eye_model')
 #################################################################################
 
 # FOR STATIC IMAGES
@@ -179,7 +180,8 @@ with mp_face_mesh.FaceMesh(
         print('frame:', count)
 
 #STAMPO IMMAGINI (CON CROPPED VADO A RITAGLIARE L'IMMAGINE ASSEGNANDO DUE VALORI DI RITAGLIO ALLA X E Y )
-        #reader=np.loadtxt('count.csv', delimiter=',')           
+        reader=np.loadtxt(r'C:\Users\lucry\Desktop\TIROCINIO_DRIVERS\MODIFICATO\drivers\count.csv', delimiter=',') 
+        print(reader)          
         path = 'MODIFICATO/drivers/images/left_eye/left_eye_' + str(id_sbj)+"_" + str(id_session) + "_"
         for i in range(reader.shape[0]):
           for j in range(reader.shape[1]):
@@ -198,7 +200,7 @@ with mp_face_mesh.FaceMesh(
         img_l = np.zeros((1,resized_left.shape[0], resized_left.shape[1], 3))  
         for i in range(3):  
           img_l[0,:,:,i] = resized_left
-        #predictions = model.predict(img_l)
+        predictions = model.predict(img_l)
         
         # Apply a sigmoid since our model returns logits
         predictions = tf.nn.sigmoid(predictions)
@@ -247,7 +249,7 @@ with mp_face_mesh.FaceMesh(
 
 #STAMPO IMMAGINI     
         path_r = 'MODIFICATO/drivers/images/right_eye/right_eye' + str(id_sbj)+"_" + str(id_session) + "_"
-        reader=np.loadtxt('count.csv', delimiter=',')
+        reader=np.loadtxt(r'C:\Users\lucry\Desktop\TIROCINIO_DRIVERS\MODIFICATO\drivers\count.csv', delimiter=',')
         for i in range(reader.shape[0]):
           for j in range(reader.shape[1]):
             if count == reader[i][j]:
@@ -265,7 +267,7 @@ with mp_face_mesh.FaceMesh(
         img_r = np.zeros((1,resized_right.shape[0], resized_right.shape[1], 3))  
         for i in range(3):  
           img_r[0,:,:,i] = resized_right
-        #predictions = model.predict(img_r)
+        predictions = model.predict(img_r)
 
         # Apply a sigmoid since our model returns logits
         predictions = tf.nn.sigmoid(predictions)
@@ -316,7 +318,7 @@ with mp_face_mesh.FaceMesh(
 
 #STAMPO IMMAGINI         
         path_l = 'MODIFICATO/drivers/images/lips/lips' + str(id_sbj)+"_" + str(id_session) + "_"
-        reader=np.loadtxt('count.csv', delimiter=',')
+        reader=np.loadtxt(r'C:\Users\lucry\Desktop\TIROCINIO_DRIVERS\MODIFICATO\drivers\count.csv', delimiter=',')
         for i in range(reader.shape[0]):
           for j in range(reader.shape[1]):
             if count == reader[i][j]:

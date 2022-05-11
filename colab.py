@@ -7,8 +7,8 @@ import glob
 from tensorflow import keras
 from tensorflow.keras.preprocessing import image_dataset_from_directory
 
-model = keras.models.load_model('MODIFICATO/my_eye_model')          #IMPORTO IL MODELLO
-
+#model = keras.models.load_model('MODIFICATO/my_eye_model')          #IMPORTO IL MODELLO
+model = keras.models.load_model('my_eye_model') 
 
 frame = False
 list_of_dirs = glob.glob('MODIFICATO/foto_Colab/*')

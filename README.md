@@ -4,7 +4,7 @@ Progettazione e sviluppo di un algoritmo basato su Deep Learning per la classifi
 Design and Development of an algorithm based on Deep Learning to classify RGB images in the context of road safety
 
 # Obiettivo Progettuale
-L’obiettivo di questo elaborato è quello di implementare e addestrare una Rete Neurale in grado di rilevare i movimenti del guidatore. In modo particolare focalizziamo la nostra nostra attenzione sull’apertura e la chiusura degli occhi. Per poter ridurre al minimo gli errori commessi, analizziamo anche i falsi positivi e i falsi negativi.
+L’obiettivo di questo progetto è quello di implementare e addestrare una Rete Neurale in grado di rilevare i movimenti del guidatore. In modo particolare focalizziamo la nostra nostra attenzione sull’apertura e la chiusura degli occhi. Per poter ridurre al minimo gli errori commessi, analizziamo anche i falsi positivi e i falsi negativi.
 Questo lavoro è stato diviso in due parti: la prima parte relativa a Facemesh, la seconda riguarda l’addestramento della Rete Neurale tramite un set di immagini non molto ampio.
 
 
@@ -31,6 +31,5 @@ Il principale linguaggio di programmazione utilizzato è stato Python
 - Addestramento Rete Neurale : Test Set e Validation Set, Data Augmentation, Implementazione MobileNetV2, Feature Extraction
 - Validation (Fine Tuning, Evaluation and Prediction)
 - Test Locale
-- 
 
 
